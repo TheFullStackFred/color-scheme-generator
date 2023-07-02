@@ -58,3 +58,11 @@ p {
   margin: auto;
   font-weight: 600;
 }
+
+@media (max-width: 410px) {
+  header {
+    flex-direction: column;
+    height: 11rem;
+    justify-content: space-between;
+  }
+}
