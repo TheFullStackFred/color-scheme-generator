@@ -67,7 +67,7 @@ p {
 @media (max-width: 410px) {
   header {
     flex-direction: column;
-    height: 11rem;
+    height: 12rem;
     justify-content: space-between;
   }
 }
