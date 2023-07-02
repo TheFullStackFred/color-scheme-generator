@@ -60,7 +60,7 @@ function renderColorScheme(colors) {
     const colorEl = document.createElement('div')
     colorEl.style.background = `${color.hex.value}`
 
-    // Add event listener to copy content on click
+    // Event listener to copy content on click
     colorEl.addEventListener('click', () => {
       copyToClipboard(color.hex.value)
     })
