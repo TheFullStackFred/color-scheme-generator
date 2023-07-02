@@ -11,7 +11,15 @@ getColorBtn.addEventListener('click', () => {
 
   fetch(`https://www.thecolorapi.com/scheme?hex=${hexCode}&mode=${mode}`)
     .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      data.colors.forEach((color) => {
+        console.log(color.hex.value)
+
+        const div = document.createElement('div')
+        div.style.background = `${color.hex.value}`
+        document.querySelector('main').appendChild(div)
+      })
+    })
 })
 
 colorSchemeMode.forEach((color) => {
