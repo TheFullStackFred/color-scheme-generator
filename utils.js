@@ -1,3 +1,16 @@
+// Toggle darkmode
+function toggleDarkMode(isDarkMode, body, darkMode, lightMode) {
+  isDarkMode.value = !isDarkMode.value
+
+  if (isDarkMode.value) {
+    body.style.background = `${darkMode.background}`
+    body.style.color = `${darkMode.color}`
+  } else {
+    body.style.background = `${lightMode.background}`
+    body.style.color = `${lightMode.color}`
+  }
+}
+
 // Fetches the color scheme
 function getColorScheme(hexCode, mode, renderColorScheme) {
   fetch(`https://www.thecolorapi.com/scheme?hex=${hexCode}&mode=${mode}`)
@@ -20,4 +33,9 @@ function copyToClipboard(hexCode) {
   )
 }
 
-export { getColorScheme, capitalizeFirstLetter, copyToClipboard }
+export {
+  toggleDarkMode,
+  getColorScheme,
+  capitalizeFirstLetter,
+  copyToClipboard
+}

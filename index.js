@@ -1,10 +1,17 @@
-import { colorSchemeModes, defaultHexAndMode } from './colorSchemeModes.js'
+import { colorSchemeModes, defaultHexAndMode } from './color-scheme-modes.js'
+import { darkMode, lightMode } from './dark-light-mode-themes.js'
 import {
+  toggleDarkMode,
   getColorScheme,
   capitalizeFirstLetter,
   copyToClipboard
 } from './utils.js'
 
+const isDarkMode = {
+  value: false
+}
+
+const body = document.querySelector('body')
 const header = document.querySelector('header')
 const hexEl = document.querySelector('input[type="color"]')
 const modeEl = document.createElement('select')
@@ -13,9 +20,11 @@ const mainEl = document.querySelector('main')
 const footer = document.querySelector('footer')
 
 // Event listener for toggle darkmode
-document.getElementById('toggle-dark-mode').addEventListener('click', () => {
-  alert()
-})
+document
+  .getElementById('toggle-dark-mode')
+  .addEventListener('click', () =>
+    toggleDarkMode(isDarkMode, body, darkMode, lightMode)
+  )
 
 // Event listener on getColorSchemeBtn to trigger the fetch
 getColorSchemeBtn.addEventListener('click', () => {
