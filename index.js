@@ -1,13 +1,15 @@
 import { colorSchemeModes, defaultHexAndMode } from './colorSchemeModes.js'
+import { getColorScheme, capitalizeFirstLetter } from './utils.js'
 
 const header = document.querySelector('header')
 const hexEl = document.querySelector('input[type="color"]')
 const modeEl = document.createElement('select')
-const getColorBtn = document.querySelector('button')
+const getColorSchemeBtn = document.querySelector('button')
 const mainEl = document.querySelector('main')
 const footer = document.querySelector('footer')
 
-getColorBtn.addEventListener('click', () => {
+// Event listener on getColorSchemeBtn to trigger the fetch
+getColorSchemeBtn.addEventListener('click', () => {
   let hexCode = hexEl.value.slice(1)
   let mode = modeEl.value
   console.log(hexCode, mode)
@@ -17,23 +19,24 @@ getColorBtn.addEventListener('click', () => {
   getColorScheme(hexCode, mode, renderColorScheme)
 })
 
+// Render the default color scheme when the page is initially loaded
+function renderDefaultColorSchema() {
+  const hexCode = defaultHexAndMode.hex
+  const mode = defaultHexAndMode.mode
+  getColorScheme(hexCode, mode, renderColorScheme)
+}
+
+// Creates options for the select menu
 function createModeOptions() {
   colorSchemeModes.forEach((color) => {
     const option = document.createElement('option')
     option.value = color
-    option.textContent = color.charAt(0).toUpperCase() + color.slice(1)
+    option.textContent = capitalizeFirstLetter(color)
     modeEl.appendChild(option)
   })
 }
 
-function getColorScheme(hexCode, mode) {
-  fetch(`https://www.thecolorapi.com/scheme?hex=${hexCode}&mode=${mode}`)
-    .then((res) => res.json())
-    .then((data) => {
-      renderColorScheme(data.colors)
-    })
-}
-
+// Render the chosen color scheme
 function renderColorScheme(colors) {
   colors.forEach((color) => {
     const colorEl = document.createElement('div')
@@ -45,12 +48,6 @@ function renderColorScheme(colors) {
   })
 }
 
-function renderDefaultColorSchema() {
-  const hexCode = defaultHexAndMode.hex
-  const mode = defaultHexAndMode.mode
-  getColorScheme(hexCode, mode)
-}
-
 createModeOptions()
 renderDefaultColorSchema()
-header.insertBefore(modeEl, getColorBtn)
+header.insertBefore(modeEl, getColorSchemeBtn)
