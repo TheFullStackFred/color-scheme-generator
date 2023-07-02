@@ -39,6 +39,7 @@ button {
 
 div {
   height: calc(100vh - 5.6rem - 2.8rem);
+  cursor: pointer;
 }
 
 main,
