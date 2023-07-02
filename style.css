@@ -37,11 +37,24 @@ button {
   cursor: pointer;
 }
 
-main {
+div {
+  height: calc(100vh - 5.6rem - 2.8rem);
+}
+
+main,
+footer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
 
-div {
-  height: 100vh;
+footer {
+  height: 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin: auto;
+  font-weight: 600;
 }
