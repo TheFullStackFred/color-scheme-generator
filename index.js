@@ -12,6 +12,11 @@ const getColorSchemeBtn = document.querySelector('button')
 const mainEl = document.querySelector('main')
 const footer = document.querySelector('footer')
 
+// Event listener for toggle darkmode
+document.getElementById('toggle-dark-mode').addEventListener('click', () => {
+  alert()
+})
+
 // Event listener on getColorSchemeBtn to trigger the fetch
 getColorSchemeBtn.addEventListener('click', () => {
   let hexCode = hexEl.value.slice(1)
