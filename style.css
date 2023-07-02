@@ -22,7 +22,6 @@ input[type='color'] {
   width: 3.8rem;
   height: 2.6rem;
   border: 3px solid #d1d5db;
-  text-transform: capitalize;
 }
 
 select,
