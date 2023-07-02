@@ -12,4 +12,12 @@ function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
-export { getColorScheme, capitalizeFirstLetter }
+//  Copy to clipboard on click
+function copyToClipboard(hexCode) {
+  const cb = navigator.clipboard
+  cb.writeText(hexCode).then(() =>
+    alert(`Hex color code "${hexCode}" copied to clipboard`)
+  )
+}
+
+export { getColorScheme, capitalizeFirstLetter, copyToClipboard }
