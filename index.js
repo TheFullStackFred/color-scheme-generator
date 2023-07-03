@@ -10,6 +10,7 @@ import {
 const isDarkMode = {
   value: false
 }
+console.log(defaultHexAndMode.hex)
 
 const body = document.querySelector('body')
 const header = document.querySelector('header')
@@ -39,6 +40,7 @@ getColorSchemeBtn.addEventListener('click', () => {
 
 // Render the default color scheme when the page is initially loaded
 function renderDefaultColorSchema() {
+  hexEl.value = `#${defaultHexAndMode.hex}`
   const hexCode = defaultHexAndMode.hex
   const mode = defaultHexAndMode.mode
   getColorScheme(hexCode, mode, renderColorScheme)
