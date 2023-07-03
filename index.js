@@ -10,7 +10,6 @@ import {
 const isDarkMode = {
   value: false
 }
-console.log(defaultHexAndMode.hex)
 
 const body = document.querySelector('body')
 const header = document.querySelector('header')
@@ -29,14 +28,13 @@ document
 getColorSchemeBtn.addEventListener('click', () => {
   let hexCode = hexEl.value.slice(1)
   let mode = modeEl.value
-
   mainEl.innerHTML = ''
   footer.textContent = ''
 
   getColorScheme(hexCode, mode, renderColorScheme)
 })
 
-function renderDefaultColorSchema() {
+function renderDefaultColorScheme() {
   hexEl.value = `#${defaultHexAndMode.hex}`
   const hexCode = defaultHexAndMode.hex
   const mode = defaultHexAndMode.mode
@@ -69,5 +67,5 @@ function renderColorScheme(colors) {
 }
 
 createModeOptions()
-renderDefaultColorSchema()
+renderDefaultColorScheme()
 header.insertBefore(modeEl, getColorSchemeBtn)
