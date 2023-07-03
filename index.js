@@ -20,14 +20,12 @@ const getColorSchemeBtn = document.querySelector('button')
 const mainEl = document.querySelector('main')
 const footer = document.querySelector('footer')
 
-// Event listener for toggle darkmode
 document
   .getElementById('toggle-dark-mode')
   .addEventListener('click', () =>
     toggleDarkMode(isDarkMode, body, darkMode, lightMode)
   )
 
-// Event listener on getColorSchemeBtn to trigger the fetch
 getColorSchemeBtn.addEventListener('click', () => {
   let hexCode = hexEl.value.slice(1)
   let mode = modeEl.value
@@ -38,7 +36,6 @@ getColorSchemeBtn.addEventListener('click', () => {
   getColorScheme(hexCode, mode, renderColorScheme)
 })
 
-// Render the default color scheme when the page is initially loaded
 function renderDefaultColorSchema() {
   hexEl.value = `#${defaultHexAndMode.hex}`
   const hexCode = defaultHexAndMode.hex
@@ -46,7 +43,6 @@ function renderDefaultColorSchema() {
   getColorScheme(hexCode, mode, renderColorScheme)
 }
 
-// Creates options for the select menu
 function createModeOptions() {
   colorSchemeModes.forEach((color) => {
     const option = document.createElement('option')
@@ -56,13 +52,11 @@ function createModeOptions() {
   })
 }
 
-// Render the chosen color scheme
 function renderColorScheme(colors) {
   colors.forEach((color) => {
     const colorEl = document.createElement('div')
     colorEl.style.background = `${color.hex.value}`
 
-    // Event listener to copy content on click
     colorEl.addEventListener('click', () => {
       copyToClipboard(color.hex.value)
     })
